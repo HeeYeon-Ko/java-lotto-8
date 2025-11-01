@@ -1,6 +1,9 @@
 package lotto;
 
+import static lotto.WinningNumbers.inputWinningNumbersWithBonus;
+
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -9,6 +12,8 @@ public class Application {
         int count = money / 1000;
 
         Lotto.createLottos(count);
+
+        inputWinningNumbersWithBonus();
 
 
     }
@@ -24,6 +29,5 @@ public class Application {
         return money;
     }
 
-    //당첨 번호 + 보너스 번호 입력 함수
-    //private static List<Integer> inputWinningNumbersWithBonus(){}
+
 }
