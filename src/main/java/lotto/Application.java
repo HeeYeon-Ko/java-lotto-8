@@ -12,7 +12,7 @@ public class Application {
         int count = money / 1000;
 
         List<Lotto> tickets = Lotto.createLottos(count);
-        WinningNumbers win = inputWinningNumbersWithBonus();
+        WinningNumbers win = readWinningUntilValid();
         LottoResult.printResult(tickets, win.getNumbers(), win.getBonus(), money);
 
     }
@@ -20,7 +20,7 @@ public class Application {
     private static int readAmountUntilValid() {
         while (true) {
             try {
-                return inputAmount();   // ← 한 번 시도
+                return inputAmount();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage()); // [ERROR] 출력
             }
@@ -43,6 +43,16 @@ public class Application {
             throw new IllegalArgumentException("[ERROR] 1,000원 단위로 입력해 주세요.");
         }
         return money;
+    }
+
+    private static WinningNumbers readWinningUntilValid() {
+        while (true) {
+            try {
+                return inputWinningNumbersWithBonus();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 }
