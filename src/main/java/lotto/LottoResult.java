@@ -57,7 +57,7 @@ public class LottoResult {
 
     // 수익률 출력
     private static void printYieldRate(long total, int paid) {
-        double rate = Math.round((total * 100.0 / paid) * 10) / 10.0;
+        double rate = total * 100.0 / paid;
         System.out.printf("총 수익률은 %.1f%%입니다.%n", rate);
     }
 }
